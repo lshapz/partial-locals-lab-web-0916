@@ -1,0 +1,8 @@
+<% form_tag students_path, method: :get do %>
+  <%= text_field_tag :name, params[:name] %>
+  <%= submit_tag "Search", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Please wait..." %>
+<% end %>
+
+<% @students.each do |student| %>
+  <%= render partial: 'student', locals: {student: student} %>
+  <% end %>
